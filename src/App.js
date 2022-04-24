@@ -1,17 +1,17 @@
 import React from "react"
-import { BrowserRouter, Routes } from "react-router-dom"
+import { BrowserRouter, Routes, Route } from "react-router-dom"
 import styles from "./App.module.scss"
 
-import { HomeRoute } from "./routes/HomeRoute"
-import { LoginRoute } from "./routes/LoginRoute"
+import { Home } from "./routes/Home/Home"
+import { Login } from "./routes/Login/Login"
 
 function App() {
   return (
     <div className={styles.app}>
       <BrowserRouter>
         <Routes>
-          <HomeRoute />
-          <LoginRoute />
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
         </Routes>
       </BrowserRouter>
     </div>
