@@ -1,13 +1,14 @@
-import Logo from "./logo.png"
+import React from "react"
+import styles from "./App.module.scss"
+
+import { ContentContainer } from "./components/ContentContainer/ContentContainer"
+import { Header } from "./components/Header/Header"
 
 function App() {
   return (
-    <div className="App">
-      <div className="icon">
-        <img src={Logo} alt="icon" />
-      </div>
-      <h3 className="group">ИКБО-13-19</h3>
-      <p className="name">Корольков Александр</p>
+    <div className={styles.app}>
+      <Header />
+      <ContentContainer />
     </div>
   )
 }
