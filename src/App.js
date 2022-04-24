@@ -1,20 +1,30 @@
 import React from "react"
-import { BrowserRouter, Routes, Route } from "react-router-dom"
 import styles from "./App.module.scss"
 
-import { Home } from "./routes/Home/Home"
-import { Login } from "./routes/Login/Login"
+import { Provider } from "react-redux"
+import { createStore } from "redux"
+
+import { Agreement } from "./components/Agreement/Agreement"
+
+/** Redux **/
+const reducer = (state = { agreement: false }, action) => {
+  switch (action.type) {
+    case "CHECK_AGREEMENT":
+      return { ...state, agreement: !state.agreement }
+    default:
+      return state
+  }
+}
+
+const store = createStore(reducer)
 
 function App() {
   return (
-    <div className={styles.app}>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-        </Routes>
-      </BrowserRouter>
-    </div>
+    <Provider store={store}>
+      <div className={styles.app}>
+        <Agreement />
+      </div>
+    </Provider>
   )
 }
 
