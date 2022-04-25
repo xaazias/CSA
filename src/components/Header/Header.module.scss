@@ -1,0 +1,30 @@
+.header {
+  display: flex;
+  padding: 40px 120px;
+  background: #081B4B;
+  align-items: center;
+  justify-content: space-between;
+
+  .logo {
+    display: flex;
+    column-gap: 20px;
+    align-items: center;
+  
+    h2 {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      color: #fff;
+      font-weight: 700;
+    }
+  }
+
+  .auth {
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    background: rgb(0, 105, 255);
+    font-size: 16px;
+    font-weight: 500;
+    color: #fff;
+  }
+}

@@ -1,28 +1,33 @@
 import React from "react"
 import styles from "./App.module.scss"
-
-import { Provider } from "react-redux"
 import { createStore } from "redux"
+import { Provider } from "react-redux"
 
-import { Agreement } from "./components/Agreement/Agreement"
-
-/** Redux **/
-const reducer = (state = { agreement: false }, action) => {
-  switch (action.type) {
-    case "CHECK_AGREEMENT":
-      return { ...state, agreement: !state.agreement }
-    default:
-      return state
-  }
-}
-
-const store = createStore(reducer)
+import { Router } from "./Router"
 
 function App() {
+  const defaultState = {
+    user: null
+  }
+
+  const reducer = (state = defaultState, action) => {
+    switch (action.type) {
+      case "AUTHORIZE":
+        return {
+          ...state,
+          user: action.user
+        }
+      default:
+        return state
+    }
+  }
+
+  const store = createStore(reducer)
+
   return (
     <Provider store={store}>
       <div className={styles.app}>
-        <Agreement />
+        <Router />
       </div>
     </Provider>
   )
