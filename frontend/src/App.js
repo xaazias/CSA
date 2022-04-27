@@ -30,14 +30,14 @@ function App() {
           />
         ))}
         <AddCard setUser={setUser} setUsers={setUsers} setModal={setModal} />
-        <Modal
+      </div>
+      <Modal
           show={modal.state}
           type={modal.type}
           handleClose={() => setModal((prev) => ({ ...prev, state: false }))}
           user={user}
           setUsers={setUsers}
         />
-      </div>
     </div>
   )
 }
